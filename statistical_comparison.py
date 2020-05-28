@@ -71,10 +71,10 @@ def comparison_regression( predictions_model, predictions_benchmark, actual_labe
     Since the tests are one-sided, they always test a better model against a worse one. """
     
     # Calculates errors of the main model
-    errors_model = np.abs( mymodel_pred - actual_labels )
+    errors_model = np.abs( predictions_model - actual_labels )
     
     # Calculates errors of the benchmark model
-    errors_benchmark = np.abs( mymodel_pred - luck )
+    errors_benchmark = np.abs( predictions_benchmark - actual_labels )
     
     # Applies a parametric test, takes 1/2 of the p-value because the test is one-sided
     tpvalue = ttest_rel( errors_model, errors_benchmark )[ 1 ] / 2
